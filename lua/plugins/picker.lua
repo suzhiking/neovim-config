@@ -43,7 +43,7 @@ return {
             -- find
             {
                 "<leader>b",
-                function() Snacks.picker.buffers() end,
+                function() Snacks.picker.buffers({hidden = true, nofile = true, current = true, unloaded = false}) end,
                 desc = "Buffers"
             },
             {
@@ -216,53 +216,16 @@ return {
                 function() Snacks.picker.lsp_type_definitions() end,
                 desc = "Goto T[y]pe Definition"
             },
-            -- {
-            --     "<leader>fa",
-            --     function() Snacks.picker.lsp_symbols({ layout = { preset = "select_top", preview = "main" } }) end,
-            --     desc = "LSP Symbols"
-            -- },
             {
-                "<leader>fa",
+                "<leader>ff",
+                function() Snacks.picker.lsp_symbols({ layout = { preset = "select_top", preview = "main" } }) end,
+                desc = "LSP Symbols"
+            },
+            {
+                "<leader>fs",
                 function() Snacks.picker.lsp_workspace_symbols() end,
                 desc = "LSP Symbols"
             },
         },
     },
-    {
-        "bassamsdata/namu.nvim",
-        keys = {
-            {
-                "<leader>ff",
-                function()
-                    require("namu.namu_symbols").show()
-                end,
-                desc = "Jump to LSP symbol",
-                silent = true,
-            },
-        },
-        config = function()
-            require("namu").setup({
-                row_position = "top10",
-                -- Enable the modules you want
-                namu_symbols = {
-                    enable = true,
-                    options = {
-                        movement = {
-                            next = { "<C-j>", "<DOWN>" }, -- Support multiple keys
-                            previous = { "<C-k>", "<UP>" }, -- Support multiple keys
-                        },
-                        window = {
-                            auto_size = true,
-                            min_width = 100,
-                            max_height = 10,
-                            padding = 4,
-                            border = "rounded",
-                            show_footer = true,
-                            footer_pos = "right",
-                        },
-                    }, -- here you can configure namu
-                },
-            })
-        end,
-    }
 }

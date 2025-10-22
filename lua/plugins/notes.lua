@@ -67,14 +67,4 @@ return {
         lazy = true,
         ft = "markdown", -- If you decide to lazy-load anyway
     },
-    -- install with yarn or npm
-    {
-        "iamcco/markdown-preview.nvim",
-        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        build = "cd app && yarn install",
-        init = function()
-            vim.g.mkdp_filetypes = { "markdown" }
-        end,
-        ft = { "markdown" },
-    },
 }

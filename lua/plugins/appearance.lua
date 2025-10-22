@@ -1,8 +1,9 @@
 return {
     {
         "folke/noice.nvim",
-        lazy = true,
-        enabled = not vim.g.vscode,
+        lazy = false,
+        -- enabled = not vim.g.vscode,
+        enabled = true,
         event = "VeryLazy",
         opts = {
             cmdline = {
@@ -70,7 +71,8 @@ return {
     {
         "dstein64/nvim-scrollview",
         -- optional = true,
-        enabled = not vim.g.neovide, -- existing bug with neovide
+        enabled = false,
+        -- enabled = not vim.g.neovide, -- existing bug with neovide
         -- enabled = true, -- existing bug with neovide
         lazy = true,
         event = "VeryLazy",
@@ -80,81 +82,54 @@ return {
         },
     },
     -- Enable these if you want mosue support with pretty UI
-    {
-        "nvzone/typr",
-        optional = true,
-        enabled = false,
-        dependencies = {
-            "nvchad/volt",
-        }
-    },
-    {
-        "nvzone/minty",
-        optional = true,
-        enabled = false,
-        cmd = { "Shades", "Huefy" },
-    },
-    {
-        "nvchad/menu",
-        optional = true,
-        enabled = false,
-        lazy = false,
-        config = function()
-            vim.keymap.set("n", "<RightMouse>", function()
-                vim.cmd.exec('"normal! \\<RightMouse>"')
-
-                local options = vim.bo.ft == "NvimTree" and "nvimtree" or "default"
-                require("menu").open(options, { mouse = true })
-            end, {})
-        end,
-    },
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        enabled = false,
-        event = "VeryLazy",
-        main = "ibl",
-        opts = function()
-            Snacks.toggle({
-                name = "Indention Guides",
-                get = function()
-                    return require("ibl.config").get_config(0).enabled
-                end,
-                set = function(state)
-                    require("ibl").setup_buffer(0, { enabled = state })
-                end,
-            }):map("<leader>ug")
-
-            return {
-                indent = {
-                    char = "│",
-                    tab_char = "│",
-                },
-                -- scope = { show_start = false, show_end = false, highlight = "Special" },
-                scope = { show_start = false, show_end = false, },
-                exclude = {
-                    filetypes = {
-                        "Trouble",
-                        "alpha",
-                        "dashboard",
-                        "help",
-                        "lazy",
-                        "mason",
-                        "neo-tree",
-                        "notify",
-                        "snacks_dashboard",
-                        "snacks_notif",
-                        "snacks_terminal",
-                        "snacks_win",
-                        "toggleterm",
-                        "trouble",
-                    },
-                },
-            }
-        end,
-    },
+    -- {
+    --     "lukas-reineke/indent-blankline.nvim",
+    --     enabled = false,
+    --     event = "VeryLazy",
+    --     main = "ibl",
+    --     opts = function()
+    --         Snacks.toggle({
+    --             name = "Indention Guides",
+    --             get = function()
+    --                 return require("ibl.config").get_config(0).enabled
+    --             end,
+    --             set = function(state)
+    --                 require("ibl").setup_buffer(0, { enabled = state })
+    --             end,
+    --         }):map("<leader>ug")
+    --
+    --         return {
+    --             indent = {
+    --                 char = "│",
+    --                 tab_char = "│",
+    --             },
+    --             -- scope = { show_start = false, show_end = false, highlight = "Special" },
+    --             scope = { show_start = false, show_end = false, },
+    --             exclude = {
+    --                 filetypes = {
+    --                     "Trouble",
+    --                     "alpha",
+    --                     "dashboard",
+    --                     "help",
+    --                     "lazy",
+    --                     "mason",
+    --                     "neo-tree",
+    --                     "notify",
+    --                     "snacks_dashboard",
+    --                     "snacks_notif",
+    --                     "snacks_terminal",
+    --                     "snacks_win",
+    --                     "toggleterm",
+    --                     "trouble",
+    --                 },
+    --             },
+    --         }
+    --     end,
+    -- },
     -- Highlight todo, notes, etc in comments
     {
         "folke/todo-comments.nvim",
+        enabled = true,
         event = "VeryLazy",
         dependencies = { "nvim-lua/plenary.nvim" },
         keys = {

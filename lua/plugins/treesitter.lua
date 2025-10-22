@@ -4,7 +4,7 @@ return {
         enabled = not vim.g.vscode,
 		build = ":TSUpdate",
 		lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
-		event = "VeryLazy",
+		event = {"VeryLazy"},
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
@@ -17,7 +17,7 @@ return {
 					disable = { "latex" },
 					additional_vim_regex_highlighting = { "latex", "markdown" },
 				},
-				indent = { enable = true, disable = { "typst" } },
+				indent = { enable = true, disable = { "typst", "python" } },
 				textobjects = {
 					move = {
 						enable = true,
@@ -78,39 +78,39 @@ return {
 			--          vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
 		end,
 	},
-	{
-		"nvim-treesitter/nvim-treesitter-context",
-		lazy = true,
-		event = "VeryLazy",
-		config = function()
-			local tsc = require("treesitter-context")
-			tsc.setup({
-				enable = false,
-				mode = "cursor",
-				max_lines = 3,
-			})
-
-			vim.g.toggle
-				.new({
-					name = "Treesitter Context",
-					get = function()
-						return tsc.enabled()
-					end,
-					set = function(state)
-						if state then
-							tsc.enable()
-						else
-							tsc.disable()
-						end
-					end,
-				})
-				:map("<leader>uC")
-			-- vim.cmd("hi TreesitterContext gui=underline guisp=background")
-			-- vim.cmd("hi TreesitterContextLineNumber guibg=background")
-			-- vim.cmd("hi TreesitterContextSeparator gui=underline")
-			-- vim.cmd("hi TreesitterContextBottom gui=underline")
-			-- vim.cmd("hi clear TreesitterContextSeparator")
-			-- vim.cmd("hi clear TreesitterContextBottom")
-		end,
-	},
+	-- {
+	-- 	"nvim-treesitter/nvim-treesitter-context",
+	-- 	lazy = true,
+	-- 	event = "VeryLazy",
+	-- 	config = function()
+	-- 		local tsc = require("treesitter-context")
+	-- 		tsc.setup({
+	-- 			enable = false,
+	-- 			mode = "cursor",
+	-- 			max_lines = 3,
+	-- 		})
+	--
+	-- 		vim.g.toggle
+	-- 			.new({
+	-- 				name = "Treesitter Context",
+	-- 				get = function()
+	-- 					return tsc.enabled()
+	-- 				end,
+	-- 				set = function(state)
+	-- 					if state then
+	-- 						tsc.enable()
+	-- 					else
+	-- 						tsc.disable()
+	-- 					end
+	-- 				end,
+	-- 			})
+	-- 			:map("<leader>uC")
+	-- 		-- vim.cmd("hi TreesitterContext gui=underline guisp=background")
+	-- 		-- vim.cmd("hi TreesitterContextLineNumber guibg=background")
+	-- 		-- vim.cmd("hi TreesitterContextSeparator gui=underline")
+	-- 		-- vim.cmd("hi TreesitterContextBottom gui=underline")
+	-- 		-- vim.cmd("hi clear TreesitterContextSeparator")
+	-- 		-- vim.cmd("hi clear TreesitterContextBottom")
+	-- 	end,
+	-- },
 }

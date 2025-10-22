@@ -3,6 +3,7 @@ local get_icon = utils.get_icon
 
 return {
 	"folke/which-key.nvim",
+    enabled = true,
 	lazy = true,
 	event = "UIEnter",
 	keys = {

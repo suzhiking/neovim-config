@@ -2,7 +2,7 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		lazy = true,
-		enabled = true,
+		enabled = false,
 		event = "VeryLazy",
 		init = function()
 			vim.g.lualine_laststatus = vim.o.laststatus
@@ -15,15 +15,15 @@ return {
 			end
 		end,
 		config = function()
-            vim.o.laststatus = vim.g.lualine_laststatus
+			vim.o.laststatus = vim.g.lualine_laststatus
 			require("lualine").setup({
 				options = {
 					theme = "auto",
-                    globalstatus = vim.o.laststatus == 3,
+					globalstatus = vim.o.laststatus == 3,
 					component_separators = { left = "", right = "" },
-                    disabled_filetypes = { statusline = { "snacks_dashboard" } }
+					disabled_filetypes = { statusline = { "snacks_dashboard" } },
 				},
-				globalstatus = true,
+				globalstatus = false,
 				sections = {
 					lualine_b = {
 						"branch",

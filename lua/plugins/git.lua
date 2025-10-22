@@ -136,6 +136,7 @@ return {
     -- Use Lazygit instead of this
     {
         "NeogitOrg/neogit",
+        enabled = true,
         lazy = true,
         event = "VeryLazy",
         dependencies = {

@@ -40,18 +40,18 @@ local is_available = utils.is_available
 -- end
 
 
-vim.api.nvim_create_autocmd(
-    {
-        "BufNewFile",
-        "BufRead",
-    },
-    {
-        pattern = "*.typ",
-        callback = function()
-            local buf = vim.api.nvim_get_current_buf()
-            -- vim.api.nvim_buf_set_option(buf, "filetype", "typst")
-			vim.api.nvim_set_option_value("filetype", "typst", {buf = buf})
-        end
-    }
-)
+-- vim.api.nvim_create_autocmd(
+--     {
+--         "BufNewFile",
+--         "BufRead",
+--     },
+--     {
+--         pattern = "*.typ",
+--         callback = function()
+--             local buf = vim.api.nvim_get_current_buf()
+--             -- vim.api.nvim_buf_set_option(buf, "filetype", "typst")
+-- 			vim.api.nvim_set_option_value("filetype", "typst", {buf = buf})
+--         end
+--     }
+-- )
 

@@ -1,7 +1,7 @@
 return {
 	{ -- file bookmarks
 		"otavioschwanck/arrow.nvim",
-		enabled = true,
+		enabled = false,
 		lazy = true,
 		event = "VeryLazy",
 		keys = {
@@ -28,33 +28,9 @@ return {
 		},
 	},
 	{
-		"mikavilpas/yazi.nvim",
-		cmd = "Yazi",
-		keys = {
-			{
-				-- NOTE: this requires a version of yazi that includes
-				-- https://github.com/sxyazi/yazi/pull/1305 from 2024-07-18
-				"<leader>.",
-				function()
-					require("yazi").toggle()
-				end,
-				desc = "Yazi",
-			},
-		},
-		opts = {
-			-- if you want to open yazi instead of netrw, see below for more info
-			open_for_directories = false,
-
-			--
-			-- enable these if you are using the latest version of yazi
-			use_ya_for_events_reading = true,
-			use_yazi_client_id_flag = true,
-		},
-	},
-	{
 		"nvim-neo-tree/neo-tree.nvim",
 		lazy = true,
-        optional = true,
+		optional = true,
 		enabled = false,
 		cmd = "Neotree",
 		dependencies = {
@@ -254,5 +230,25 @@ return {
 				},
 			})
 		end,
+	},
+	{
+		"stevearc/oil.nvim",
+		---@module 'oil'
+		---@type oil.SetupOpts
+		lazy = false,
+        enabled = false,
+		opts = {},
+		keys = {
+			{
+				"<space>.",
+				function()
+					require("oil").open()
+				end,
+				desc = "Oil File Manager",
+			},
+		},
+		-- Optional dependencies
+		-- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+		-- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
 	},
 }

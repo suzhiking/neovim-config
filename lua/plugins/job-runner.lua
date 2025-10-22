@@ -54,21 +54,4 @@ return {
             { "<leader>oc", "<cmd>OverseerClearCache<cr>",  desc = "Clear cache" },
         },
     },
-    {
-        "ramilito/kubectl.nvim",
-        keys = {
-            {
-                "<leader>k",
-                function() require("kubectl").toggle({tab = true}) end,
-                noremap = true,
-                silent = true,
-            }
-        },
-        -- opts = {
-        --     kubectl_cmd = { cmd = "kubectl", env = {}, args = {"-n trends"}, persist_context_change = false },
-        -- },
-        config = function(_, opts)
-            require("kubectl").setup(opts)
-        end,
-    },
 }

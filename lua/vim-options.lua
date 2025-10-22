@@ -106,8 +106,8 @@ end)
 vim.keymap.set({ "i", "c", "o" }, "<C-j>", "<C-n>", { desc = "Select next item" })
 vim.keymap.set({ "i", "c", "o" }, "<C-k>", "<C-p>", { desc = "Select previous item" })
 
-vim.keymap.set("n", "<C-j>", "<C-d>", { desc = "Scroll half page down" })
-vim.keymap.set("n", "<C-k>", "<C-u>", { desc = "Scroll half page up" })
+vim.keymap.set({"n", "x"}, "<C-j>", "<C-d>", { desc = "Scroll half page down" })
+vim.keymap.set({"n", "x"}, "<C-k>", "<C-u>", { desc = "Scroll half page up" })
 
 vim.keymap.set("n", "<C-Left>", "<C-w><C-h>", { desc = "Move window left" })
 vim.keymap.set("n", "<C-Right>", "<C-w><C-l>", { desc = "Move window right" })
@@ -162,7 +162,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		clear = true,
 	}),
 	callback = function()
-		vim.highlight.on_yank()
+		vim.hl.on_yank()
 	end,
 })
 
@@ -205,7 +205,7 @@ vim.opt.showtabline = 2
 vim.g.maplocalleader = " "
 
 -- optional themes
-vim.g.opt_themes = true
+vim.g.opt_themes = false
 
 vim.opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds", "blank" }
 
@@ -232,6 +232,8 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		local fg = vim.api.nvim_get_hl(0, { name = "FloatBorder" }).fg
 		vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
 		vim.api.nvim_set_hl(0, "FloatBorder", { fg = fg, bg = "bg" })
+        vim.cmd("hi WinBar guibg=NONE")
+        vim.cmd("hi WinBarNc guibg=None")
 	end,
 })
 end
@@ -257,9 +259,10 @@ end)
 keymap.set("t", "<c-l>", function()
 	vim.cmd.wincmd("l")
 end)
-vim.api.nvim_create_autocmd({ "TermOpen", "TermEnter" }, {
-	pattern = "*",
-	callback = function()
-		vim.wo.winbar = "Neovim Terminal"
-	end,
-})
+-- vim.api.nvim_create_autocmd({ "TermOpen", "TermEnter" }, {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		vim.wo.winbar = "Neovim Terminal"
+-- 	end,
+-- })
+vim.g.test = false

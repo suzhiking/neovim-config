@@ -2,6 +2,7 @@ return {
 	-- Lua
 	{
 		"folke/persistence.nvim",
+        enabled = true,
 		lazy = true,
 		event = "VeryLazy", -- this will only start session saving when an actual file was opened
 		config = function()
@@ -26,6 +27,12 @@ return {
 			vim.keymap.set("n", "<leader>Sd", function()
 				require("persistence").stop()
 			end, { desc = "Stop session save" })
+
+            -- vim.api.nvim_create_autocmd("PersistenceSavePre", {
+            --     callback = function()
+            --         vim.api.close
+            --     end
+            -- })
 		end,
 	},
 	-- {
