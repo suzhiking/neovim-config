@@ -1,0 +1,72 @@
+{
+  "math inline": {
+    "prefix": "i",
+    "body": ["\\$$1\\$$0"],
+    "description": "Math inline mode."
+  },
+  "math display": {
+    "prefix": "dd",
+    "body": ["\\$ $1 \\$$0"],
+    "description": "Math display mode."
+  },
+  "math align": {
+    "prefix": "al",
+    "body": ["\\$", "$1", "\\$$0"],
+    "description": "Math display mode."
+  },
+  "text bold": {
+    "prefix": "bf",
+    "body": ["*$1*"],
+    "description": "Text bold"
+  },
+  "text italic": {
+    "prefix": "it",
+    "body": ["_$1_"],
+    "description": "Text italic"
+  },
+  "math fraction": {
+    "prefix": "frac",
+    "body": ["($1)/($2)$0"],
+    "description": "Math fraction"
+  },
+  "math definition": {
+    "prefix": "defnition",
+    "body": ["#definition(\"$1\")[", "${2:Here}", "]$0"],
+    "description": "Math definition"
+  },
+  "math theorem": {
+    "prefix": "theorem",
+    "body": ["#theorem(\"$1\")[", "${2:Here}", "]$0"],
+    "description": "Math theorem"
+  },
+  "math proposition": {
+    "prefix": "proposition",
+    "body": ["#proposition($1)[", "${2:Here}", "]$0"],
+    "description": "Math proposition"
+  },
+  "math problem": {
+    "prefix": "problem",
+    "body": ["#problem($1)[", "${2:Here}", "]$0"],
+    "description": "Math problem",
+  },
+  "math question": {
+    "prefix": "question",
+    "body": ["#question($1)[", "${2:Here}", "]$0"],
+    "description": "Math question"
+  },
+  "math proof": {
+    "prefix": "proof",
+    "body": ["#proof()[", "$1", "]$0"],
+    "description": "Math proof"
+  },
+  "limit": {
+    "prefix": "lim",
+    "body": ["lim_($1)$0"],
+    "description": "Math limit"
+  },
+  "minimization problem": {
+    "prefix": "minpb",
+    "body": ["\\$", "min & $1", "$2", "\\$"],
+    "description": "Minimizatin problem"
+  }
+}

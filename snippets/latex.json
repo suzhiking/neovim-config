@@ -1,0 +1,287 @@
+{
+    "LaTeX - inline math (dollars)": {
+        "prefix": "s",
+        "body": [
+            "\\{$1\\\\}$2"
+        ],
+        "description": "Create inline math formula"
+    },
+    "Auto Complete $": {
+        "prefix": "i",
+        "body": [
+            "$$1$"
+        ],
+        "description": "Auto complete $$"
+    },
+    "Auto Complete Figure": {
+        "prefix": "figure",
+        "body": [
+            "\\begin{figure}[${3:h}]",
+            "    \\centering",
+            "    \\includegraphics[scale=${2:0.5}]{$1}",
+            "\\end{figure}"
+        ],
+        "description": "Auto complete figure environment"
+    },
+    "Title": {
+        "prefix": "title",
+        "body": [
+            "(\\textbf{$1})"
+        ],
+        "description": "Auto complete title"
+    },
+    "Definition": {
+        "prefix": "definition",
+        "body": [
+            "\\begin{definition}{$1}{}",
+            "",
+            "$2",
+            "",
+            "\\end{definition}"
+        ],
+        "description": "Auto complete $$"
+    },
+    "Theorem": {
+        "prefix": "theorem",
+        "body": [
+            "\\begin{theorem}{$1}{}",
+            "",
+            "$2",
+            "",
+            "\\end{theorem}"
+        ],
+        "description": "Auto complete $$"
+    },
+    "Proposition": {
+        "prefix": "proposition",
+        "body": [
+            "\\begin{proposition}{$1}{}",
+            "",
+            "$2",
+            "",
+            "\\end{proposition}"
+        ],
+        "description": "Auto complete $$"
+    },
+    "Example": {
+        "prefix": "example",
+        "body": [
+            "\\begin{example}{}{}",
+            "",
+            "$1",
+            "",
+            "\\end{example}"
+        ],
+        "description": "Auto complete $$"
+    },
+    "Remark": {
+        "prefix": "remark",
+        "body": [
+            "\\begin{remark}{}{}",
+            "",
+            "$1",
+            "",
+            "\\end{remark}"
+        ],
+        "description": "Remark"
+    },
+    "Exercise": {
+        "prefix": "exercise",
+        "body": [
+            "\\begin{exercise}{}{}",
+            "",
+            "$1",
+            "",
+            "\\end{exercise}"
+        ],
+        "description": "Remark"
+    },
+    "formula": {
+        "prefix": "formula",
+        "body": [
+            "\\begin{formula}{$1}{}",
+            "",
+            "$2",
+            "",
+            "\\end{formula}"
+        ],
+        "description": "Formula"
+    },
+    "to": {
+        "prefix": "to",
+        "body": [
+            "\\rightarrow "
+        ],
+        "description": "Auto complete"
+    },
+    "R": {
+        "prefix": "R",
+        "body": [
+            "\\mathbb{R}"
+        ],
+        "description": "Auto complete"
+    },
+    "Z": {
+        "prefix": "Z",
+        "body": [
+            "\\mathbb{Z}"
+        ],
+        "description": "Auto complete"
+    },
+    "N": {
+        "prefix": "N",
+        "body": [
+            "\\mathbb{N}"
+        ],
+        "description": "Auto complete"
+    },
+    "C": {
+        "prefix": "C",
+        "body": [
+            "\\mathbb{C}"
+        ],
+        "description": "Auto complete"
+    },
+    "Q": {
+        "prefix": "Q",
+        "body": [
+            "\\mathbb{Q}"
+        ],
+        "description": "Auto complete"
+    },
+    "itemize": {
+        "prefix": "itemize",
+        "body": [
+            "\\begin{itemize}",
+            "    \\item $1",
+            "\\end{itemize}"
+        ],
+        "description": "Auto complete"
+    },
+    "enumerate": {
+        "prefix": "enumerate",
+        "body": [
+            "\\begin{enumerate}",
+            "    \\item $1",
+            "\\end{enumerate}"
+        ],
+        "description": "Auto complete"
+    },
+    "Proof": {
+        "prefix": "proof",
+        "body": [
+            "\\begin{proof}",
+            "",
+            "$1",
+            "",
+            "\\end{proof}"
+        ],
+        "description": "Proof"
+    },
+    "nu": {
+        "prefix": "max",
+        "body": [
+            "\\nu($1)"
+        ],
+        "description": "nu"
+    },
+    "tau": {
+        "prefix": "min",
+        "body": [
+            "\\tau($1)"
+        ],
+        "description": "tau"
+    },
+    "phi": {
+        "prefix": "p",
+        "body": [
+            "\\phi"
+        ],
+        "description": "phi without auto space"
+    },
+    "textbf": {
+        "prefix": "bf",
+        "body": [
+            "\\textbf{$1}"
+        ],
+        "description": "textbf"
+    },
+    "forward": {
+        "prefix": "forward",
+        "body": [
+            "($\\Rightarrow$) "
+        ],
+        "description": "forward proof"
+    },
+    "backward": {
+        "prefix": "backward",
+        "body": [
+            "($\\Leftarrow$) "
+        ],
+        "description": "backward proof"
+    },
+    "align": {
+        "prefix": "align",
+        "body": [
+            "\\begin{align*}",
+            "    $1",
+            "\\end{align*}"
+        ],
+        "description": "math alignment"
+    },
+    "code": {
+        "prefix": "cc",
+        "body": [
+            "\\begin{lstlisting}",
+            "    $1",
+            "\\end{lstlisting}"
+        ],
+        "description": "code block"
+    },
+    "inline code": {
+        "prefix": "c",
+        "body": [
+            "\\lstinline{$1}"
+        ],
+        "description": "inline code block"
+    },
+    "sk": {
+        "prefix": "sk",
+        "body": [
+            "\\bigskip\\\\\\\\",
+            "$1"
+        ],
+        "description": "inline code block"
+    },
+    "blk": {
+        "prefix": "blk",
+        "body": [
+            "\\begin{lstlisting}",
+            "$1",
+            "",
+            "\\end{lstlisting}"
+        ],
+        "description": "code block lstlisting"
+    },
+    "bm": {
+        "prefix": "bm",
+        "body": [
+            "\\bm{$1}"
+        ],
+        "description": "bold math symbol"
+    },
+    "answer": {
+        "prefix": "ans",
+        "body": [
+            "\\textbf{answer:} $1"
+        ],
+        "description": "answer"
+    },
+    "text": {
+        "prefix": "tt",
+        "body": [
+            "\\text{$1}$0"
+        ],
+        "description": "text"
+    }
+}

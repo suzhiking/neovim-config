@@ -1,0 +1,37 @@
+{
+  "sort": {
+    "prefix": "sort",
+    "body": ["sort(${1:}.begin(), ${1:}.end()$0);"],
+    "description": "Sort using sort()"
+  },
+  "atoi": {
+    "prefix": "iota",
+    "body": ["iota(${1:}.begin(), ${1:}.end(), 0);$0"],
+    "description": "Create an index array"
+  },
+  "accumulate": {
+    "prefix": "accumulate",
+    "body": ["accumulate(${1:}.begin(), ${1:}.end(), 0$0)"],
+    "description": "Sum up the the vector"
+  },
+  "lower_bound": {
+    "prefix": "lower_bound",
+    "body": ["lower_bound(${1:}.begin(), ${1:}.end(), $2)"],
+    "description": "Lower bound"
+  },
+  "upper_bound": {
+    "prefix": "upper_bound",
+    "body": ["upper_bound(${1:}.begin(), ${1:}.end(), $2)"],
+    "description": "Upper bound"
+  },
+  "max_element": {
+    "prefix": "max_element",
+    "body": ["max_element(${1:}.begin(), ${1:}.end())$0"],
+    "description": "Max element"
+  },
+  "min_element": {
+    "prefix": "min_element",
+    "body": ["min_element(${1:}.begin(), ${1:}.end())$0"],
+    "description": "Min element"
+  }
+}
