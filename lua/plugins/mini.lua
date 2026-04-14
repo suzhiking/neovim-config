@@ -84,7 +84,7 @@ return {
             n_lines = 20,
         })
         vim.keymap.set("x", ")", "sa)", { remap = true })
-        vim.keymap.set("x", "]", "sa]", { remap = true })
+        -- vim.keymap.set("x", "]", "sa]", { remap = true })
         vim.keymap.set("x", '"', 'sa"', { remap = true })
         vim.keymap.set("x", "'", "sa'", { remap = true })
         vim.keymap.set("x", "}", "sa}", { remap = true })

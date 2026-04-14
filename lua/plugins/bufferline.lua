@@ -28,7 +28,7 @@ return {
                 enforce_regular_tabs = true,
                 tab_size = 12,
                 TabLineFill = { bg = bufferline.line_bg },
-                separator_style = "slant"
+                separator_style = {"", ""}
             },
         })
         local show = true

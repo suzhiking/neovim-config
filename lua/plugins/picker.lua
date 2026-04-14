@@ -228,4 +228,13 @@ return {
             },
         },
     },
+    -- {
+    --     dir = "~/dev/algotpl.nvim",     -- ← path to your local repo
+    --     name = "algotpl.nvim",
+    --     lazy = true,
+    --     event = "VeryLazy",
+    --     config = function()
+    --         require("algotpl").setup()
+    --     end
+    -- }
 }

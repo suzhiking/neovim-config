@@ -20,6 +20,7 @@ return {
             keymap = {
                 preset = "default",
                 ["<Tab>"] = { "select_and_accept", "fallback" },
+                ['<C-e>'] = { "hide", "show", "fallback" },
                 ["<C-k>"] = { "select_prev" },
                 ["<C-j>"] = { "select_next" },
                 ["<C-l>"] = { "snippet_forward", "fallback" },
@@ -105,10 +106,13 @@ return {
             -- experimental signature help support
             signature = {
                 enabled = true,
+                trigger = {
+                    enabled = false,
+                },
                 window = {
-                    winblend = 10,
-                    border = "single",
-                    winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+                    -- winblend = 10,
+                    -- border = "single",
+                    -- winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
                 },
             },
 
@@ -126,16 +130,18 @@ return {
                     -- draw = {
                     --     treesitter = { "lsp" },
                     -- },
-                    border = "single",
-                    winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+                    -- winblend = 10,
+                    -- border = "single",
+                    -- winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
                 },
                 documentation = {
                     auto_show = true,
-                    auto_show_delay_ms = 1,
+                    -- auto_show_delay_ms = 100,
                     window = {
-                        border = "single",
-                        winhighlight =
-                        "Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+                        -- winblend = 10,
+                        -- border = "single",
+                        -- winhighlight =
+                        -- "Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
                     },
                 },
                 ghost_text = {

@@ -30,7 +30,7 @@ return {
 
             -- vim.api.nvim_create_autocmd("PersistenceSavePre", {
             --     callback = function()
-            --         vim.api.close
+            --         Snacks.explorer.close()
             --     end
             -- })
 		end,

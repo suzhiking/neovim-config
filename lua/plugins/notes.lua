@@ -2,7 +2,9 @@
 return {
     {
         "chomosuke/typst-preview.nvim",
+        lazy = false,
         ft = "typst",
+        version = '1.*',
         keys = {
             {
                 "<leader>tp",
@@ -26,7 +28,7 @@ return {
             require("typst-preview").update()
         end,
         opts = {
-            -- open_cmd = "open -a 'Google Chrome' %s",
+            open_cmd = "open -a 'Google Chrome' %s",
             -- open_cmd = "typst_preview %s",
             -- open_cmd = "open"
             -- dependencies_bin = {

@@ -92,46 +92,9 @@ return {
         end,
     },
     {
-        "sindrets/diffview.nvim",
-        lazy = true,
-        cmd = { "DiffviewOpen", "DiffviewFileHistory", "DiffviewLog" },
-        keys = {
-            {
-                "<leader>gd",
-                function()
-                    -- local last_tabpage = vim.api.nvim_get_current_tabpage()
-                    local lib = require("diffview.lib")
-                    local view = lib.get_current_view()
-                    if view then
-                        -- Current tabpage is a Diffview; close it
-                        vim.cmd(":DiffviewClose")
-                    else
-                        -- No open Diffview exists: open a new one
-                        vim.cmd(":DiffviewOpen")
-                    end
-                end,
-                desc = "Diff view",
-            },
-            {
-                "<leader>gF",
-                function()
-                    local user_input = vim.fn.input("Files to Open: ")
-                    vim.cmd("DiffviewFileHistory" .. user_input)
-                end,
-                desc = "Open DiffView on Files"
-            },
-            {
-                "<leader>go",
-                function()
-                    local user_input = vim.fn.input("Revision to Open: ")
-                    vim.cmd("DiffviewOpen " .. user_input)
-                end,
-                desc = "Open DiffView"
-            }
-        },
-        config = function()
-            require("diffview").setup()
-        end,
+        "esmuellert/vscode-diff.nvim",
+        dependencies = { "MunifTanjim/nui.nvim" },
+        cmd = "CodeDiff",
     },
     -- Use Lazygit instead of this
     {

@@ -7,7 +7,7 @@ return {
         dependencies = {
             "mason-org/mason.nvim",
             -- Useful status updates for LSP.
-            { "j-hui/fidget.nvim", opts = {} },
+            { "j-hui/fidget.nvim", opts = { notification = { window = { winblend = 0 } } } },
             "saghen/blink.cmp",
         },
         config = function()
@@ -115,8 +115,8 @@ return {
             vim.diagnostic.config({
                 float = { border = "rounded" },
                 virtual_text = false,
-                virtual_lines = false,
-                underline = false,
+                virtual_lines = { current_line = true },
+                underline = true,
                 signs = {
                     text = {
                         [vim.diagnostic.severity.ERROR] = icons.DiagnosticError,
@@ -127,8 +127,11 @@ return {
                 },
             })
             vim.keymap.set("n", "gK", function()
-                local new_config = not vim.diagnostic.config().virtual_lines
-                vim.diagnostic.config({ virtual_lines = new_config })
+                if vim.diagnostic.config().virtual_lines then
+                    vim.diagnostic.config({ virtual_lines = false })
+                else
+                    vim.diagnostic.config({ virtual_lines = { current_line = true } })
+                end
             end, { desc = "Toggle diagnostic virtual_lines" })
 
             -- Enable the following language servers
@@ -166,6 +169,9 @@ return {
                         "--fallback-style=webkit",
                         "--offset-encoding=utf-16",
                         -- "--clang-tidy",
+                    },
+                    init_options = {
+                        fallbackFlags = { '--std=c++20' }
                     },
                     settings = {
                         clangd = {
@@ -446,35 +452,36 @@ return {
     --     "stevearc/profile.nvim",
     --     lazy = false,
     -- }
-    {
-        "rachartier/tiny-inline-diagnostic.nvim",
-        event = "VeryLazy",
-        enabled = true,
-        priority = 1000,
-        config = function()
-            require("tiny-inline-diagnostic").setup({
-                signs = {
-                    left = "",
-                    right = "",
-                    arrow = "    ",
-                    diag = "■"
-                },
-                blend = {
-                    factor = 0.1
-                },
-                -- transparent_bg = true,
-                -- transparent_cursorline = false,
-                hi = {
-                    error = "DiagnosticVirtualTextError"
-                },
-                options = {
-                    multilines = {
-                        enabled = true,
-                        always_show = true,
-                        severity = { vim.diagnostic.severity.ERROR, vim.diagnostic.severity.HINT },
-                    },
-                },
-            })
-            vim.diagnostic.config({ virtual_text = false }) -- Disable Neovim's default virtual text diagnostics
-        end,
-    } }
+    -- {
+    --     "rachartier/tiny-inline-diagnostic.nvim",
+    --     event = "VeryLazy",
+    --     enabled = true,
+    --     priority = 1000,
+    --     config = function()
+    --         require("tiny-inline-diagnostic").setup({
+    --             signs = {
+    --                 left = "",
+    --                 right = "",
+    --                 arrow = "    ",
+    --                 diag = "■"
+    --             },
+    --             blend = {
+    --                 factor = 0.1
+    --             },
+    --             -- transparent_bg = true,
+    --             -- transparent_cursorline = false,
+    --             hi = {
+    --                 error = "DiagnosticVirtualTextError"
+    --             },
+    --             options = {
+    --                 multilines = {
+    --                     enabled = true,
+    --                     always_show = true,
+    --                     severity = { vim.diagnostic.severity.ERROR, vim.diagnostic.severity.HINT },
+    --                 },
+    --             },
+    --         })
+    --         vim.diagnostic.config({ virtual_text = false }) -- Disable Neovim's default virtual text diagnostics
+    --     end,
+    -- }
+}

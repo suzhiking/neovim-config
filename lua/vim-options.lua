@@ -3,7 +3,7 @@ vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
 vim.g.mapleader = " "
-vim.wo.relativenumber = true
+vim.wo.relativenumber = false
 
 local keymap = vim.keymap
 
@@ -89,15 +89,15 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 vim.opt.termguicolors = true
 
-vim.keymap.set("n", "<C-d>", "<C-w><C-j>")
-vim.keymap.set("n", "<C-u>", "<C-w><C-k>")
+vim.keymap.set("n", "<C-j>", "<C-w><C-j>")
+vim.keymap.set("n", "<C-k>", "<C-w><C-k>")
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { silent = true })
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { silent = true })
 vim.keymap.set("n", "}", function()
-	vim.cmd("bn")
+    vim.cmd("bn")
 end)
 vim.keymap.set("n", "{", function()
-	vim.cmd("bp")
+    vim.cmd("bp")
 end)
 -- vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Previosu buffer", silent = true })
 -- vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Next buffer", silent = true })
@@ -106,8 +106,8 @@ end)
 vim.keymap.set({ "i", "c", "o" }, "<C-j>", "<C-n>", { desc = "Select next item" })
 vim.keymap.set({ "i", "c", "o" }, "<C-k>", "<C-p>", { desc = "Select previous item" })
 
-vim.keymap.set({"n", "x"}, "<C-j>", "<C-d>", { desc = "Scroll half page down" })
-vim.keymap.set({"n", "x"}, "<C-k>", "<C-u>", { desc = "Scroll half page up" })
+-- vim.keymap.set({"n", "x"}, "<C-j>", "<C-d>", { desc = "Scroll half page down" })
+-- vim.keymap.set({"n", "x"}, "<C-k>", "<C-u>", { desc = "Scroll half page up" })
 
 vim.keymap.set("n", "<C-Left>", "<C-w><C-h>", { desc = "Move window left" })
 vim.keymap.set("n", "<C-Right>", "<C-w><C-l>", { desc = "Move window right" })
@@ -131,7 +131,7 @@ vim.keymap.set("n", "<leader>n", "<<cmd>enew<cr>", { desc = "New File" })
 vim.keymap.set("n", "<C-s>", "<cmd>w!<cr>", { desc = "Force write" })
 vim.keymap.set("n", "<C-q>", "<cmd>qa!<cr>", { desc = "Force quit" })
 vim.keymap.set("n", "|", "<cmd>vsplit<cr>", { desc = "Vertical Split" })
-vim.keymap.set("n", "<leader>\\", "<cmd>split<cr>", { desc = "Horizontal Split" })
+vim.keymap.set("n", "<c-\\>", "<cmd>split<cr>", { desc = "Horizontal Split" })
 vim.keymap.set("v", ">", ">gv", { nowait = true, noremap = true })
 vim.keymap.set("v", "<", "<gv", { nowait = true, noremap = true })
 vim.keymap.set("v", "<Tab>", ">gv", { nowait = true })
@@ -157,13 +157,13 @@ vim.keymap.set("n", "daa", "<cmd>%d<cr>", { desc = "Delete entire file" })
 vim.keymap.set("n", "<leader>ab", ":%bd|e#|bd# <cr>bd", { noremap = true, desc = "Clean non-active buffers" })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlight when yanking (copying) text",
-	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", {
-		clear = true,
-	}),
-	callback = function()
-		vim.hl.on_yank()
-	end,
+    desc = "Highlight when yanking (copying) text",
+    group = vim.api.nvim_create_augroup("kickstart-highlight-yank", {
+        clear = true,
+    }),
+    callback = function()
+        vim.hl.on_yank()
+    end,
 })
 
 vim.g.neovide_cursor_vfx_particle_speed = 100.0
@@ -183,8 +183,8 @@ keymap.set({ "n", "v" }, "j", "v:count == 0 ? 'gj' : 'j'", { noremap = true, exp
 keymap.set({ "n", "v" }, "k", "v:count == 0 ? 'gk' : 'k'", { noremap = true, expr = true, silent = true })
 keymap.set("n", "0", "g0", { noremap = true, silent = true })
 keymap.set("n", "$", "g$", { noremap = true, silent = true })
-vim.keymap.set({ "n", "x" }, "H", "g^", { desc = "End of line", noremap = true, silent = true })
-vim.keymap.set({ "n", "x" }, "L", "g$", { desc = "Start of line", noremap = true, silent = true })
+vim.keymap.set({ "n", "x" }, "H", "g^", { desc = "End of line", noremap = false, silent = true })
+vim.keymap.set({ "n", "x" }, "L", "g$", { desc = "Start of line", noremap = false, silent = true })
 
 keymap.set({ "n", "v" }, "s", "<Nop>", { noremap = true })
 
@@ -207,14 +207,14 @@ vim.g.maplocalleader = " "
 -- optional themes
 vim.g.opt_themes = false
 
-vim.opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds", "blank" }
+vim.opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds", }
 
 -- Duplicate a line and comment out the first line
 vim.keymap.set(
-	"n",
-	"yc",
-	"<cmd>norm yygcc<cr>p",
-	{ noremap = true, desc = "Duplicate line and comment original", silent = true }
+    "n",
+    "yc",
+    "<cmd>norm yygcc<cr>p",
+    { noremap = true, desc = "Duplicate line and comment original", silent = true }
 )
 
 -- Move selected lines with shift+j or shift+k
@@ -227,37 +227,37 @@ vim.opt.wildmode = "longest:full"
 
 -- Make popup window use normal background while keeping its border color
 if not vim.g.vscode then
-vim.api.nvim_create_autocmd("ColorScheme", {
-	callback = function(_)
-		local fg = vim.api.nvim_get_hl(0, { name = "FloatBorder" }).fg
-		vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
-		vim.api.nvim_set_hl(0, "FloatBorder", { fg = fg, bg = "bg" })
-        vim.cmd("hi WinBar guibg=NONE")
-        vim.cmd("hi WinBarNc guibg=None")
-	end,
-})
+    vim.api.nvim_create_autocmd("ColorScheme", {
+        callback = function(_)
+            local fg = vim.api.nvim_get_hl(0, { name = "FloatBorder" }).fg
+            vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
+            vim.api.nvim_set_hl(0, "FloatBorder", { fg = fg, bg = "bg" })
+            vim.cmd("hi WinBar guibg=NONE")
+            vim.cmd("hi WinBarNc guibg=None")
+        end,
+    })
 end
 
 vim.filetype.add({
-	extension = {
-		strato = "scala",
-	},
+    extension = {
+        strato = "scala",
+    },
 })
 
 -- vim.o.winborder = "double"
 
 -- Window management in terminal
 keymap.set("t", "<c-d>", function()
-	vim.cmd.wincmd("j")
+    vim.cmd.wincmd("j")
 end)
 keymap.set("t", "<c-u>", function()
-	vim.cmd.wincmd("k")
+    vim.cmd.wincmd("k")
 end)
 keymap.set("t", "<c-h>", function()
-	vim.cmd.wincmd("h")
+    vim.cmd.wincmd("h")
 end)
 keymap.set("t", "<c-l>", function()
-	vim.cmd.wincmd("l")
+    vim.cmd.wincmd("l")
 end)
 -- vim.api.nvim_create_autocmd({ "TermOpen", "TermEnter" }, {
 -- 	pattern = "*",
@@ -266,3 +266,11 @@ end)
 -- 	end,
 -- })
 vim.g.test = false
+
+vim.g.nord_italic = false
+vim.g.nord_bold = false
+
+vim.keymap.set("n", "<C-,>", "<C-w><")
+vim.keymap.set("n", "<C-.>", "<C-w>>")
+
+

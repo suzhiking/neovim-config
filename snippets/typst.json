@@ -47,7 +47,7 @@
   "math problem": {
     "prefix": "problem",
     "body": ["#problem($1)[", "${2:Here}", "]$0"],
-    "description": "Math problem",
+    "description": "Math problem"
   },
   "math question": {
     "prefix": "question",

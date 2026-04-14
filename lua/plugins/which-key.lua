@@ -36,7 +36,7 @@ return {
 			{ "<leader>r", group = "Refactor", icon = { icon = get_icon("ActiveLSP", 1, true), hl = "@comment" } },
 			{ "<leader>g", group = "Git", icon = { icon = get_icon("Git", 1, true), hl = "@error" } },
 			{ "<leader>x", group = "Diagnostic" },
-			{ "<leader>o", group = "Tasks", icon = { icon = get_icon("Task", 1, true), hl = "@markup" } },
+			-- { "<leader>o", group = "Oil", icon = { icon = get_icon("Task", 1, true), hl = "@markup" } },
 		},
 		-- Defer popup for certain keys
 		defer = function(ctx)

@@ -1,6 +1,6 @@
 if vim.g.neovide then
 -- Put anything you want to happen only in Neovide here
-vim.o.guifont = "JetBrainsMono Nerd Font Mono:h14:#h-none" -- text below applies for VimScript
+vim.o.guifont = "JetBrainsMono Nerd Font Mono:h16:#h-none" -- text below applies for VimScript
 vim.g.neovide_window_blurred = false
 -- vim.g.neovide_transparency = 0.96
 vim.g.neovide_opacity = 1.0
@@ -29,6 +29,8 @@ vim.g.neovide_floating_shadow = true
 vim.g.neovide_floating_z_height = 10
 vim.g.neovide_light_angle_degrees = 45
 vim.g.neovide_light_radius = 5
+-- vim.g.neovide_text_gamma = 0.1
+-- vim.g.neovide_text_contrast = 0.8
 -- vim.g.neovide_show_border = true
 -- vim.g.neovide_cursor_antialiasing = true
 

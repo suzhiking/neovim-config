@@ -4,7 +4,7 @@ return {
     {
         "xeluxee/competitest.nvim",
         lazy = true,
-        enabled = false,
+        -- enabled = true,
         ft = { "cpp" },
         dependencies = "MunifTanjim/nui.nvim",
         config = function()
@@ -12,7 +12,20 @@ return {
                 compile_command = {
                     cpp = { exec = "g++-14", args = { "-std=c++23", "-O2", "-Wall", "$(FNAME)", "-o", "$(FNOEXT)" } },
                 },
-                -- runner_ui = { interface = "split" },
+                -- runner_ui = { interface = "right" },
+                -- split_ui = {
+                --     position = "left",
+                --     total_width = 0.2,
+                --     vertical_layout = {
+                --         { 1, "tc" },
+                --         { 1, "so" },
+                --         { 1, "eo" },
+                --         { 1, "si" },
+                --         { 1, "se" },
+                --         -- { 1, { { 1, "so" }, { 1, "eo" } } },
+                --         -- { 1, { { 1, "si" }, { 1, "se" } } },
+                --     },
+                -- }
             })
             vim.keymap.set("n", "<leader>rr", "<cmd>CompetiTest run<cr>", { desc = "Rerun" })
             vim.keymap.set("n", "<leader>rt", "<cmd>CompetiTest receive testcases<cr>", { desc = "Receive testcases" })

@@ -11,7 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 vim.opt.rtp:prepend(lazypath)
-
+vim.opt.guicursor = "i:ver50"
 require("vim-options")
 require("neovide")
 require("vscode-options")
@@ -32,6 +32,8 @@ for _, source in ipairs({
 		vim.api.nvim_err_writeln("Failed to load " .. source .. "\n\n" .. fault)
 	end
 end
+
+-- vim.opt.guicursor:append("n:block-blinkon500-blinkoff500-blinkwait250")
 
 -- local should_profile = os.getenv("NVIM_PROFILE")
 -- if should_profile then
